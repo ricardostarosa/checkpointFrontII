@@ -11,8 +11,6 @@ const imagemForm = document.querySelector("#imagemForm");
 const tituloForm = document.querySelector("#tituloForm");
 const descricaoForm = document.querySelector("#descricaoForm");
 
-const infoCard = {};
-
 const listaCards = [];
 
 function listaInfoCards() {
@@ -23,23 +21,17 @@ function listaInfoCards() {
   });
 }
 
-function montaCard(obj) {
-  obj["titulo"] = titulo.value;
-  obj["descricao"] = descricao.value;
-  obj["url"] = url.value;
-
-  return `<img id="imagemForm" src="${obj.url}" alt=""><h2 id="tituloForm">${obj.titulo}</h2><p id="descricaoForm">${obj.descricao}</p>`;
-}
-
-const attributes = {
-  id: "card",
-  class: "col-12 col-sm-8",
-};
-
-function setAttributes(element, atributos) {
-  Object.keys(atributos).forEach((attr) => {
-    element.setAttribute(attr, atributos[attr]);
+function montaCards(lista) {
+  let cards = "";
+  lista.forEach((itens) => {
+    cards += `<div class="card">
+           <img id="imagemForm" src="${itens.url}" alt="">
+           <h2 id="tituloForm">${itens.titulo}</h2>
+           <p id="descricaoForm">${itens.descricao}</p>
+       </div>`;
   });
+
+  return cards;
 }
 
 function adicionarInfoCard(event) {
@@ -47,15 +39,8 @@ function adicionarInfoCard(event) {
 
   listaInfoCards();
 
-  const elemento = montaCard(infoCard);
-
-  div.innerHTML = elemento;
-
-  setAttributes(div, attributes);
-
-  divRow.appendChild(div);
-
-  divRow.insertAdjacentElement("beforeend", div);
+  document.querySelector("#card").className = "col-8 col-sm-8";
+  document.querySelector(".rowImages").innerHTML = montaCards(listaCards);
 }
 
 botao.addEventListener("click", adicionarInfoCard);

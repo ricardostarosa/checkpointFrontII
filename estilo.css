@@ -1,7 +1,5 @@
 #container {
   background-color: black;
-  width: 400px;
-  height: 500px;
   margin: 0 auto;
   padding: 40px;
   border-radius: 15px;
@@ -21,15 +19,18 @@ button {
 }
 
 #card {
-  background-color: aquamarine;
+  background-color: rgb(241, 241, 241);
+  border: 1px solid black;
 
-  max-width: 80%;
   margin-top: 80px;
-  width: 400px;
-  size: 10px;
-  /* background-color: rgb(232, 251, 251);  */
 }
 
 img {
-  max-width: 50%;
+  max-width: 100%;
+}
+
+.rowImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
 }
