@@ -23,5 +23,13 @@ button {
 #card {
   background-color: aquamarine;
 
+  max-width: 80%;
+  margin-top: 80px;
+  width: 400px;
   size: 10px;
+  /* background-color: rgb(232, 251, 251);  */
+}
+
+img {
+  max-width: 50%;
 }
